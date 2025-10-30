@@ -1,0 +1,32 @@
+using System;
+using CCRSystemTest.Scripts.Command;
+using CCRSystemTest.Scripts.UI;
+using Zenject;
+
+namespace CCRSystemTest.Scripts
+{
+    public class ApplicationLaunch
+    {
+        private readonly IUIService _uiService;
+        private Bootstrap.Bootstrap _bootstrap;
+
+        public ApplicationLaunch(
+            IInstantiator instantiator,
+            IUIService uiService)
+        {
+            _uiService = uiService;
+            _bootstrap = new Bootstrap.Bootstrap();
+            
+            _bootstrap.AddCommand(instantiator.Instantiate<SetupUIRootCommand>());
+            
+            _bootstrap.AllCommandsDone += AllCommandsDoneHandler;
+            _bootstrap.StartExecute();
+        }
+
+        private void AllCommandsDoneHandler(object sender, EventArgs e)
+        {
+            _bootstrap.AllCommandsDone -= AllCommandsDoneHandler;
+        }
+    }
+}
+

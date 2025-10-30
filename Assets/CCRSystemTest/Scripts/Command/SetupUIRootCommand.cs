@@ -1,7 +1,7 @@
 using System;
-using ZebombaTest.Scripts.UI;
+using CCRSystemTest.Scripts.UI;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace Command
     {

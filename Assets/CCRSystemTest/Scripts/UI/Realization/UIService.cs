@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace UI
     {

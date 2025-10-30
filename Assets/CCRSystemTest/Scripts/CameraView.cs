@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     public class CameraView : MonoBehaviour
     {

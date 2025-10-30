@@ -1,6 +1,6 @@
 using System;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace Command
     { 

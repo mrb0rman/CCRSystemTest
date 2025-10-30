@@ -2,7 +2,7 @@ using Doozy.Runtime.UIManager.Containers;
 using UnityEngine;
 using Zenject;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace UI
     {

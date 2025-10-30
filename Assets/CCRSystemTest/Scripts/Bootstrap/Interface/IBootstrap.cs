@@ -1,7 +1,7 @@
 ﻿using System;
-using ZebombaTest.Scripts.Command;
+using CCRSystemTest.Scripts.Command;
 
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace Bootstrap
     {

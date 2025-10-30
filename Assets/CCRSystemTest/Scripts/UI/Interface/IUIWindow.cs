@@ -1,4 +1,4 @@
-namespace ZebombaTest.Scripts
+namespace CCRSystemTest.Scripts
 {
     namespace UI
     {
