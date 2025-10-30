@@ -12,7 +12,6 @@ namespace CCRSystemTest.Scripts
         {
             private readonly IInstantiator _instantiator;
             private readonly IUIRoot _uiRoot;
-            private readonly CameraView _cameraView;
 
             private readonly Dictionary<Type, UIWindow> _viewStorage = new Dictionary<Type, UIWindow>();
             private Dictionary<Type, GameObject> _initWindows = new();
@@ -24,7 +23,6 @@ namespace CCRSystemTest.Scripts
             {
                 _instantiator = instantiator;
                 _uiRoot = uiRoot;
-                _cameraView = cameraView;
             }
             
             public T Show<T>() where T : UIWindow
@@ -62,12 +60,12 @@ namespace CCRSystemTest.Scripts
                 }
             }
 
-            public void InitWindows()
+            public void InitWindows(Camera camera)
             {
                 foreach (var uiWindow in _viewStorage.Where(uiWindow => !_initWindows.ContainsKey(uiWindow.Key)))
                 {
                     uiWindow.Value.Canvas.renderMode = RenderMode.ScreenSpaceCamera;
-                    uiWindow.Value.Canvas.worldCamera = _cameraView.Camera;
+                    uiWindow.Value.Canvas.worldCamera = camera;
                     var view = _instantiator.InstantiatePrefab(_viewStorage[uiWindow.Key], _uiRoot.Container);
                     _initWindows.Add(uiWindow.Key, view);
                 }
