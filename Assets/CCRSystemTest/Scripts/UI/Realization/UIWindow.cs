@@ -23,18 +23,18 @@ namespace CCRSystemTest.Scripts
             
             private void Awake()
             {
-                uiContainer.OnShowCallback.Event.AddListener(Show);
-                uiContainer.OnHiddenCallback.Event.AddListener(Hide);
+                uiContainer?.OnShowCallback.Event.AddListener(Show);
+                uiContainer?.OnHiddenCallback.Event.AddListener(Hide);
             }
 
             public virtual void Show()
             {
-                uiContainer.Show();
+                uiContainer?.Show();
             }
 
             public virtual void Hide()
             {
-                uiContainer.Hide();
+                uiContainer?.Hide();
             }
         }
     }

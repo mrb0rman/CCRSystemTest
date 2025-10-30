@@ -26,6 +26,7 @@ namespace CCRSystemTest.Scripts
         private void AllCommandsDoneHandler(object sender, EventArgs e)
         {
             _bootstrap.AllCommandsDone -= AllCommandsDoneHandler;
+            _uiService.Show<UIClickerWindow>();
         }
     }
 }
