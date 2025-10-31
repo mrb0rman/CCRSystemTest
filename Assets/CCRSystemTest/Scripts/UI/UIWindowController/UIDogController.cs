@@ -36,6 +36,7 @@ namespace CCRSystemTest.Scripts
             {
                 _uiDogWindow = _uiService.Get<UIDogWindow>();
 
+                _dogController.ExceptionEvent += StopAnimationLoading;
                 _dogController.GetDogDataEvent += HandlerGetDogDataEvent;
                 _dogController.GetFactDogEvent += HandlerGetFactDogEvent;
             }
@@ -107,8 +108,10 @@ namespace CCRSystemTest.Scripts
             private void HandlerSendRequestFactEvent(DogButtonView dogButtonView)
             {
                 HideFactPanel();
+                
                 _currentClickDogButtonView?.StopAnimationLoading();
                 _currentClickDogButtonView = dogButtonView;
+                _currentClickDogButtonView.StartAnimationLoading();
                 
                 _dogController.SendRequestFact(dogButtonView.ID);
             }

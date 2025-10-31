@@ -52,21 +52,7 @@ namespace CCRSystemTest.Scripts
                 uiButton.behaviours.GetBehaviour(UIBehaviour.Name.PointerClick).Event.AddListener(SendRequestFact);
             }
 
-            public void StopAnimationLoading()
-            {
-                loadingImage.enabled = false; 
-                
-                _loadingTween?.Kill();
-                _loadingTween = null;
-            }
-            
-            private void SendRequestFact()
-            {
-                StartAnimationLoading();
-                SendRequestFactEvent?.Invoke(this);
-            }
-            
-            private void  StartAnimationLoading()
+            public void  StartAnimationLoading()
             {
                 loadingImage.enabled = true;
                 _loadingTween = loadingImage.transform
@@ -78,6 +64,21 @@ namespace CCRSystemTest.Scripts
                         loadingImage.transform.localRotation = Quaternion.identity;
                     });
             }
+            
+            public void StopAnimationLoading()
+            {
+                loadingImage.enabled = false; 
+                
+                _loadingTween?.Kill();
+                _loadingTween = null;
+            }
+            
+            private void SendRequestFact()
+            {
+                SendRequestFactEvent?.Invoke(this);
+            }
+            
+            
             
             public class Pool : MonoMemoryPool<DogButtonProtocol, DogButtonView>
             {

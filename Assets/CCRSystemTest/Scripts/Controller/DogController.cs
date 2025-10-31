@@ -11,6 +11,7 @@ namespace CCRSystemTest.Scripts
     {
         public class DogController
         {
+            public Action ExceptionEvent;
             public Action<DogData[]> GetDogDataEvent;
             public Action<DogData> GetFactDogEvent;
             
@@ -57,14 +58,15 @@ namespace CCRSystemTest.Scripts
             private async UniTaskVoid GetListDogAsync(CancellationToken token)
             {
                 using var request = UnityWebRequest.Get(_apiConfig.APIDogGet);
+                request.timeout = 20;
 
                 try
                 {
                     await request.SendWebRequest().ToUniTask(cancellationToken: token);
-                    
+
                     if (request.result != UnityWebRequest.Result.Success)
                         throw new Exception($"HTTP Error: {request.error}");
-                    
+
                     GetDogDataEvent?.Invoke(JsonUtility.FromJson<DogRoot>(request.downloadHandler.text).data);
                 }
                 catch (OperationCanceledException)
@@ -73,14 +75,16 @@ namespace CCRSystemTest.Scripts
                 }
                 catch (Exception exception)
                 {
+                    Debug.Log(request.responseCode);
                     Debug.LogError($"Error: {exception.Message}");
+                    ExceptionEvent?.Invoke();
                 }
             }
             
             private async UniTaskVoid GetFactDogAsync(CancellationToken token, string id)
             {
                 using var request = UnityWebRequest.Get(_apiConfig.APIFactDogGet + id);
-
+                
                 try
                 {
                     await request.SendWebRequest().ToUniTask(cancellationToken: token);
@@ -98,11 +102,6 @@ namespace CCRSystemTest.Scripts
                 {
                     Debug.LogError($"Error: {exception.Message}");
                 }
-            }
-
-            private void CanselToken(CancellationTokenSource cancellationToken)
-            {
-                
             }
         }
         
