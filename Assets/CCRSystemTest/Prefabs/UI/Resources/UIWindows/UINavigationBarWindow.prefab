@@ -405,7 +405,7 @@ MonoBehaviour:
     SignalSource: {fileID: 8206490854444918214}
     Selectable: {fileID: 3203272545449595179}
   Cooldown: 0.5
-  DisableWhenInCooldown: 1
+  DisableWhenInCooldown: 0
   Id:
     Category: None
     Name: None
@@ -1932,7 +1932,7 @@ MonoBehaviour:
     SignalSource: {fileID: 4912441786887213579}
     Selectable: {fileID: 6450100050613905443}
   Cooldown: 0.5
-  DisableWhenInCooldown: 1
+  DisableWhenInCooldown: 0
   Id:
     Category: None
     Name: None
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   NormalState:
     StateType: 0
     StateEvent:
-      EventName: Unnamed
+      EventName: Normal State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -2752,7 +2752,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5711224148921513310}
     Selectable: {fileID: 2651239676174627118}
-  Cooldown: 0
+  Cooldown: 0.6
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -2785,7 +2785,7 @@ MonoBehaviour:
   OnValueChangedCallback:
     m_PersistentCalls:
       m_Calls: []
-  ToggleGroup: {fileID: 0}
+  ToggleGroup: {fileID: 2651239676174627118}
   IsLocked: 0
   OverrideInteractabilityForToggles: 0
   ToggleGroupValue: 2
@@ -2807,7 +2807,7 @@ MonoBehaviour:
   OnToggleTriggeredCallback:
     m_PersistentCalls:
       m_Calls: []
-  FirstToggle: {fileID: 3203272545449595179}
+  FirstToggle: {fileID: 0}
 --- !u!114 &1305799572668417362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3120,7 @@ MonoBehaviour:
     SignalSource: {fileID: 8206490854444918214}
     Selectable: {fileID: 9204302494996924990}
   Cooldown: 0.5
-  DisableWhenInCooldown: 1
+  DisableWhenInCooldown: 0
   Id:
     Category: None
     Name: None

@@ -1,5 +1,6 @@
 using System;
 using CCRSystemTest.Scripts.UI;
+using CCRSystemTest.Scripts.View;
 
 namespace CCRSystemTest.Scripts
 {

@@ -7,17 +7,18 @@ namespace CCRSystemTest.Scripts
 {
     public class ApplicationLaunch
     {
-        private readonly IUIService _uiService;
+        private readonly UIClickerController _uiClickerController;
         private Bootstrap.Bootstrap _bootstrap;
 
         public ApplicationLaunch(
             IInstantiator instantiator,
-            IUIService uiService)
+            UIClickerController uiClickerController)
         {
-            _uiService = uiService;
+            _uiClickerController = uiClickerController;
             _bootstrap = new Bootstrap.Bootstrap();
             
             _bootstrap.AddCommand(instantiator.Instantiate<SetupUIRootCommand>());
+            _bootstrap.AddCommand(instantiator.Instantiate<SetupUIControllerCommand>());
             
             _bootstrap.AllCommandsDone += AllCommandsDoneHandler;
             _bootstrap.StartExecute();
@@ -26,7 +27,6 @@ namespace CCRSystemTest.Scripts
         private void AllCommandsDoneHandler(object sender, EventArgs e)
         {
             _bootstrap.AllCommandsDone -= AllCommandsDoneHandler;
-            _uiService.Show<UIClickerWindow>();
         }
     }
 }

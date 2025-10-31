@@ -18,14 +18,13 @@ namespace CCRSystemTest.Scripts
         
             public UIService(
                 IInstantiator instantiator,
-                IUIRoot uiRoot,
-                CameraView cameraView)
+                IUIRoot uiRoot)
             {
                 _instantiator = instantiator;
                 _uiRoot = uiRoot;
             }
             
-            public T Show<T>() where T : UIWindow
+            public T Show<T>(Action onEnd = null) where T : UIWindow
             {
                 var type = typeof(T);
                 if (!_initWindows.ContainsKey(type)) return null;
@@ -33,16 +32,18 @@ namespace CCRSystemTest.Scripts
                     
                 var component = view.GetComponent<T>();
                 component.Show();
+                onEnd?.Invoke();
                 return component;
             }
             
-            public void Hide<T>() where T : UIWindow
+            public void Hide<T>(Action onEnd = null) where T : UIWindow
             {
                 var type = typeof(T);
                 if (!_initWindows.ContainsKey(type)) return;
                 
                 var view = _initWindows[type];
                 view.GetComponent<T>().Hide();
+                onEnd?.Invoke();
             }
             
             public T Get<T>() where T : UIWindow

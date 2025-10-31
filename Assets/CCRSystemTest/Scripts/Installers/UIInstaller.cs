@@ -19,6 +19,14 @@ namespace CCRSystemTest.Scripts
                     .Bind<IUIService>()
                     .To<UIService>()
                     .AsSingle();
+
+                Container
+                    .Bind<UINavigationBarController>()
+                    .AsSingle();
+                
+                Container
+                    .Bind<UIClickerController>()
+                    .AsSingle();
             }
         }
     }
