@@ -21,7 +21,7 @@ namespace CCRSystemTest.Scripts
             public void Init()
             {
                 _uiNavigationBarWindow = _uiService.Get<UINavigationBarWindow>();
-                _uiService.Show<UIClickerWindow>();
+                ShowWindowEvent?.Invoke(_uiService.Show<UIClickerWindow>());
                 
                 _uiNavigationBarWindow.ClickerToggle.OnToggleOnCallback.Event.AddListener(()=>
                 {

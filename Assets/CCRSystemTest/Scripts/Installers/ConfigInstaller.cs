@@ -10,8 +10,8 @@ namespace CCRSystemTest.Scripts
             public override void InstallBindings()
             {
                 Container
-                    .Bind<APIWeatherConfig>()
-                    .FromNewScriptableObjectResource(ResourcesSourceConst.APIWeatherConfig)
+                    .Bind<APIConfig>()
+                    .FromNewScriptableObjectResource(ResourcesSourceConst.APIConfig)
                     .AsSingle();
                 
                 Container

@@ -8,6 +8,7 @@ namespace CCRSystemTest.Scripts
         public class SoundClickView : MonoBehaviour, IPoolable<SoundClickProtocol, IMemoryPool>
         {
             [SerializeField] private AudioSource audioSource;
+            
             public void OnDespawned()
             {
             }

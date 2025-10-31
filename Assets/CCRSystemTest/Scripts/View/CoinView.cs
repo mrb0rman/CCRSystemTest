@@ -9,6 +9,9 @@ namespace CCRSystemTest.Scripts
         {
             public void OnDespawned()
             {
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.identity;
+                transform.localScale = Vector3.one;
             }
 
             public void OnSpawned(IMemoryPool pool)

@@ -1,3 +1,4 @@
+using CCRSystemTest.Scripts.Controller;
 using DG.Tweening;
 using Doozy.Runtime.UIManager;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace CCRSystemTest.Scripts
         {
             private readonly IUIService _uiService;
             private readonly ClickerController _clickerController;
+            
             private UIClickerWindow _uiClickerWindow;
             
             public UIClickerController(
@@ -34,6 +36,16 @@ namespace CCRSystemTest.Scripts
                 
                 _clickerController.Init();
             }
+
+            public void StartClicker()
+            {
+                _clickerController.Start();
+            }
+
+            public void StopClicker()
+            {
+                _clickerController.Stop();
+            }
             
             private void Click()
             {
@@ -48,6 +60,7 @@ namespace CCRSystemTest.Scripts
                (transformCoin = coin.transform).SetParent(_uiClickerWindow.transform);
                
                transformCoin.localPosition = Vector3.zero;
+               transformCoin.localRotation = Quaternion.identity;
                transformCoin.localScale = Vector3.one;
                transformCoin.DOMoveY(transformCoin.position.y + 10, 0.5f);
             }

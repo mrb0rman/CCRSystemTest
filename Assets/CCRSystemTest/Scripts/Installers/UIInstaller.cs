@@ -27,6 +27,14 @@ namespace CCRSystemTest.Scripts
                 Container
                     .Bind<UIClickerController>()
                     .AsSingle();
+                
+                Container
+                    .Bind<UIWeatherController>()
+                    .AsSingle();
+                
+                Container
+                    .Bind<UIDogController>()
+                    .AsSingle();
             }
         }
     }
