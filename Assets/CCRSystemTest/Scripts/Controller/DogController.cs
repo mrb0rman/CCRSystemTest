@@ -58,7 +58,7 @@ namespace CCRSystemTest.Scripts
             private async UniTaskVoid GetListDogAsync(CancellationToken token)
             {
                 using var request = UnityWebRequest.Get(_apiConfig.APIDogGet);
-                request.timeout = 20;
+                request.timeout = _apiConfig.RequestTimout;
 
                 try
                 {
@@ -84,7 +84,7 @@ namespace CCRSystemTest.Scripts
             private async UniTaskVoid GetFactDogAsync(CancellationToken token, string id)
             {
                 using var request = UnityWebRequest.Get(_apiConfig.APIFactDogGet + id);
-                
+                request.timeout = 60;
                 try
                 {
                     await request.SendWebRequest().ToUniTask(cancellationToken: token);

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b15f872e873ed42805a57ce737b685, type: 3}
   m_Name: APIConfig
   m_EditorClassIdentifier: 
+  requestTimout: 60
   apiWeatherGet: https://api.weather.gov/gridpoints/TOP/32,81/forecast
   apiDogGet: https://dogapi.dog/api/v2/breeds
   apiFactDogGet: https://dogapi.dog/api/v2/breeds/
